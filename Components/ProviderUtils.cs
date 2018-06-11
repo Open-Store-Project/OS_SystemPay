@@ -106,7 +106,7 @@ namespace OS_SystemPay
         public static string GetSignature(string strMacCalc)
         {
             System.Security.Cryptography.SHA1CryptoServiceProvider objCrypt = new System.Security.Cryptography.SHA1CryptoServiceProvider();
-            byte[] bytesToHash = System.Text.Encoding.ASCII.GetBytes(strMacCalc);
+            byte[] bytesToHash = System.Text.Encoding.UTF8.GetBytes(strMacCalc);
             string rtnStr = "";
             bytesToHash = objCrypt.ComputeHash(bytesToHash);
             foreach (byte b in bytesToHash)
