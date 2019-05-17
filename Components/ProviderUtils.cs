@@ -90,7 +90,7 @@ namespace OS_SystemPay
             var rtnStr = rPost.GetPostHtml();
             if (settings.GetXmlPropertyBool("genxml/checkbox/debugmode"))
             {
-                File.WriteAllText(PortalSettings.Current.HomeDirectoryMapPath + "\\debug_NBrightSystemPaypost.html", rtnStr);
+                File.WriteAllText(PortalSettings.Current.HomeDirectoryMapPath + "\\debug_SystemPaypost.html", rtnStr);
             }
             return rtnStr;
         }
