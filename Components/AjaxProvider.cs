@@ -12,7 +12,6 @@ using DotNetNuke.Entities.Portals;
 using DotNetNuke.Services.Localization;
 using NBrightCore.common;
 using NBrightDNN;
-using OS_SystemPay.DNN.NBrightStore;
 using Nevoweb.DNN.NBrightBuy.Components;
 using Nevoweb.DNN.NBrightBuy.Components.Products;
 using Nevoweb.DNN.NBrightBuy.Components.Interfaces;

@@ -14,7 +14,6 @@ using NBrightDNN;
 
 using Nevoweb.DNN.NBrightBuy.Base;
 using Nevoweb.DNN.NBrightBuy.Components;
-using OS_SystemPay.DNN.NBrightStore;
 using DataProvider = DotNetNuke.Data.DataProvider;
 
 namespace OS_SystemPay
