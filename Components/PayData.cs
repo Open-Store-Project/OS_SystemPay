@@ -57,8 +57,7 @@ namespace OS_SystemPay
             paycount += 1;
             oInfo.PurchaseInfo.SetXmlPropertyDouble("genxml/paycount",paycount);
             oInfo.SavePurchaseData();
-            vads_trans_id = oInfo.PurchaseInfo.ItemID.ToString("00000") + oInfo.PurchaseInfo.GetXmlPropertyInt("genxml/paycount").ToString("0");
-
+            vads_trans_id = Utils.GetUniqueKey(6);
 
 
             var param = new string[3];
