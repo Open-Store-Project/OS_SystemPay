@@ -36,7 +36,7 @@ namespace OS_SystemPay
 
             var strOut = "OS_SystemPay Ajax Error";
 
-            if (PluginUtils.CheckPluginSecurity(PortalSettings.Current.PortalId, "ospayplug"))
+            if (PluginUtils.CheckPluginSecurity(PortalSettings.Current.PortalId, "os_systempay"))
             {
                 // NOTE: The paramCmd MUST start with the plugin ref. in lowercase. (links ajax provider to cmd)
                 switch (paramCmd)
