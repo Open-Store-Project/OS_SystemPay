@@ -36,18 +36,21 @@ namespace OS_SystemPay
 
             var strOut = "OS_SystemPay Ajax Error";
 
-            // NOTE: The paramCmd MUST start with the plugin ref. in lowercase. (links ajax provider to cmd)
-            switch (paramCmd)
+            if (PluginUtils.CheckPluginSecurity(PortalSettings.Current.PortalId, "ospayplug"))
             {
-                case "os_systempay_savesettings":
-                    strOut = objCtrl.SavePluginSinglePageData(context);
-                    break;
-                case "os_systempay_selectlang":
-                    objCtrl.SavePluginSinglePageData(context);
-                    var nextlang = ajaxInfo.GetXmlProperty("genxml/hidden/nextlang");
-                    var info = objCtrl.GetPluginSinglePageData("OS_SystemPaypayment", "OS_SystemPayPAYMENT", nextlang);
-                    strOut = NBrightBuyUtils.RazorTemplRender("settingsfields.cshtml", 0, "", info, "/DesktopModules/NBright/OS_SystemPay", "config", nextlang, StoreSettings.Current.Settings());
-                    break;
+                // NOTE: The paramCmd MUST start with the plugin ref. in lowercase. (links ajax provider to cmd)
+                switch (paramCmd)
+                {
+                    case "os_systempay_savesettings":
+                        strOut = objCtrl.SavePluginSinglePageData(context);
+                        break;
+                    case "os_systempay_selectlang":
+                        objCtrl.SavePluginSinglePageData(context);
+                        var nextlang = ajaxInfo.GetXmlProperty("genxml/hidden/nextlang");
+                        var info = objCtrl.GetPluginSinglePageData("OS_SystemPaypayment", "OS_SystemPayPAYMENT", nextlang);
+                        strOut = NBrightBuyUtils.RazorTemplRender("settingsfields.cshtml", 0, "", info, "/DesktopModules/NBright/OS_SystemPay", "config", nextlang, StoreSettings.Current.Settings());
+                        break;
+                }
             }
 
             return strOut;
