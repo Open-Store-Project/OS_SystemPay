@@ -1,8 +1,7 @@
 ﻿Open Store Payment Gateway
 ==========================
 
+SystemPay
 
+Notification url: ..../DesktopModules/NBright/OS_SystemPay/notify.ashx
 
-Find the VS Template here: OS_SystemPay/Installation/vs_template/
-
-Use the documentation here: Branch: OS_SystemPay/Docs/

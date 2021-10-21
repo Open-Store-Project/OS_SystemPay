@@ -69,24 +69,28 @@ namespace OS_SystemPay
 
                     if (debugMode) debugMsg += "OrderId: " + nBrightSystemPayStoreOrderId + " vads_order_id: " + orderid + " </br>";
 
-                    var orderData = new OrderData(nBrightSystemPayStoreOrderId);
-
-                    string nBrightSystemPayStatusCode = ProviderUtils.GetStatusCode(orderData, context.Request);
-
-                    if (debugMode) debugMsg += "NBrightSystemPayStatusCode: " + nBrightSystemPayStatusCode + " </br>";
-
-                    // Status return "00" is payment successful
-                    if (nBrightSystemPayStatusCode == "00")
+                    if (nBrightSystemPayStoreOrderId > 0)
                     {
-                        //set order status to Payed
-                        orderData.PaymentOk();
-                    }
-                    else
-                    {
-                        orderData.PaymentFail();
-                    }
 
-                    orderData.Save();
+                        var orderData = new OrderData(nBrightSystemPayStoreOrderId);
+
+                        string nBrightSystemPayStatusCode = ProviderUtils.GetStatusCode(orderData, context.Request);
+
+                        if (debugMode) debugMsg += "NBrightSystemPayStatusCode: " + nBrightSystemPayStatusCode + " </br>";
+
+                        // Status return "00" is payment successful
+                        if (nBrightSystemPayStatusCode == "00")
+                        {
+                            //set order status to Payed
+                            orderData.PaymentOk();
+                        }
+                        else
+                        {
+                            orderData.PaymentFail();
+                        }
+
+                        orderData.Save();
+                    }
 
                     if (debugMode)
                     {
